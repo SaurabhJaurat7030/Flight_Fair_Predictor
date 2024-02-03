@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+
+
+  <title>Flight Fair Predictor</title>
+  <style>
+    #hero {
+      width: 100%;
+      height: 75vh;
+      /* background: url("{{ url_for('static', filename='images/bg2.jpg') }}") top left; */
+      background-color: white;
+      background-size: cover;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- =========== Nav Bar Section ============= -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+      <img src="{{ url_for('static', filename='images/airplane.jpg') }}" width="35" height="35"
+        class="d-inline-block align-top" alt="">
+      Fair Predictor
+    </a>
+
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav ">
+        <li class="nav-item active">
+          <a class="nav-link" href="#hero">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#predict">Predictor</a>
+        </li>
+    </div>
+  </nav>
+  <!-- =========== Hero Section============= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container" data-aos="zoom-out" data-aos-delay="100">
+      <div class="row">
+        <div class="col">
+          <img src="{{ url_for('static', filename='images/paper.jpg') }}" alt="planeimage" class="paperimage">
+        </div>
+        <div class="col-8">
+          <h1 class="welcome">Welcome to <br> <span>Flight Fair Predictor</span></h1>
+          <h5>Predict the travel fair by entering the fligh details</h5>
+          <div class="d-flex">
+            <a href="#predict" class="btn-get-started scrollto">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+
+  <section id="predict" class="d-flex align-items-center">
+    <div class="container" data-aos="zoom-out" data-aos-delay="100">
+      <div class="row">
+        <div class="col card">
+          <p><b>Airline</b></p>
+          <p><em>Airline name is the official title of the carrier providing the flight service.</em></p>
+        </div>
+        <div class="col card">
+          <p><b>Source</b></p>
+          <p><em>Source is the starting point or departure location of a journey, often an airport.</em></p>
+        </div>
+
+        <div class="col card">
+          <p><b>Destination</b></p>
+          <p><em>The final endpoint or arrival location of a journey, typically an airport.</em></p>
+        </div>
+
+        <div class="col card">
+          <p><b>Total Stops</b></p>
+          <p><em>It indicate the no. of intermediary locations where the flight makes halts</em></p>
+        </div>
+
+        <div class="col card">
+          <p><b>Departure Date & Time</b></p>
+          <p><em>Scheduled moment for flight commencement on its journey.</em></p>
+        </div>
+
+        <div class="col card">
+          <p><b>Arrival Time & Date</b></p>
+          <p><em>Flight arrival time is the scheduled landing period.</em></p>
+        </div>
+      </div>
+
+      <!-- ==================== Form Section============================ -->
+      <div class="row">
+        <div class="col-5 ">
+          <img src="{{ url_for('static', filename='images/image_predict.jpg') }}" alt="predict_image"
+            class="predictimage animationimage">
+        </div>
+
+        <div class="col-7 formcol">
+          <form method="POST" class="animationform">
+            <div class="form-row">
+              <div class="col-md-6 mb-2">
+                <label for="airline">Airline</label>
+                <select class="custom-select" id="airline" name="airline" required>
+                  <option selected value="Air India">Air India</option>
+                  <option value="GoAir">GoAir</option>
+                  <option value="IndiGo">IndiGo</option>
+                  <option value="Jet Airways">Jet Airways</option>
+                  <option value="Jet Airways Business">Jet Airways Business</option>
+                  <option value="Multiple carriers">Multiple carriers</option>
+                  <option value="Multiple carriers Premium economy">Multiple carriers Premium economy</option>
+                  <option value="SpiceJet">SpiceJet</option>
+                  <option value="Trujet">Trujet</option>
+                  <option value="Vistara">Vistara</option>
+                  <option value="Vistara Premium economy">Vistara Premium economy</option>
+                </select>
+              </div>
+
+              <div class="col-md-6 mb-2">
+                <label for="source">Source</label>
+                <select class="custom-select" id="source" name="source" required>
+                  <option selected value="Chennai">Chennai</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Kolkata">Kolkata</option>
+                  <option value="Mumbai">Mumbai</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-6 mb-2">
+                <label for="destination">Destination</label>
+                <select class="custom-select" id="destination" name="destination" required>
+                  <option selected value="Cochin">Cochin</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Kolkata">Kolkata</option>
+                  <option value="New Delhi">New Delhi</option>
+                </select>
+              </div>
+
+              <div class="col-md-6 mb-2">
+                <label for="stops">Total Stops</label>
+                <select class="custom-select" id="stops" name="stops" required>
+                  <option selected value="0">Non-Stop</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="form-row">
+
+              <div class="col-md-6 mb-2">
+                <label for="arrtime">Arrival Date & Time</label>
+                <br>
+                <input type="datetime-local" name="arrtime" id="arrtime" class="datetime" required="required">
+              </div>
+
+              <div class="col-md-6 mb-2">
+                <label for="deptime">Departure Date & Time</label>
+                <br>
+                <input type="datetime-local" name="deptime" id="deptime" class="datetime" required="required">
+              </div>
+
+
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-4 mb-2">
+                <button class="btn btn-outline-primary my-2" type="submit">Check Price</button>
+                <button class="btn btn-outline-primary my-2" type="reset">Reset</button>
+              </div>
+            
+              <div class="col-md-8 mb-2">
+                {% if price == 0 %}
+                <div class="alert alert-primary" role="alert">
+                  Enter The Flight Details For Price Prediction
+                </div>
+                {% else %}
+                <div class="alert alert-primary pred_price" role="alert">
+                  <h5>Predicted Price: <strong class="price">{{price}} Rs.</strong></h5>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  </div>
+
+  </section>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
